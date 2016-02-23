@@ -28,7 +28,7 @@ INCLUDE = fractol.h
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INCLUDE)
 	@echo "\033[2J"
 	@echo "\033[100A"
 	@make -C libft/

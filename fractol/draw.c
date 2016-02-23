@@ -30,7 +30,7 @@ void	ft_option(void)
 	t_env	e;
 
 	e.mlx = mlx_init();
-	e.win = mlx_new_window(e.mlx, 700, 400, "OPTIONS FRACTOL");
+	e.win = mlx_new_window(e.mlx, 700, 450, "OPTIONS FRACTOL");
 	mlx_hook(e.win, 2, 1, key_hook2, &e);
 	mlx_string_put(e.mlx, e.win, 100, 30,
 			0xFF0000, "Les options de \"FRACTOL\" :");
@@ -46,6 +46,8 @@ void	ft_option(void)
 			0x0000FF, "-    enter(pavnum)   => RESET ALL");
 	mlx_string_put(e.mlx, e.win, 100, 350,
 			0xFFFFFF, "-      return        => Deformation ON/OFF");
+	mlx_string_put(e.mlx, e.win, 100, 350,
+			0xFFFFFF, "-        +/-         => Iteration");
 	mlx_loop(e.mlx);
 }
 

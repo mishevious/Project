@@ -28,6 +28,10 @@ void		key_move(int keycode, t_env *e)
 		e->x1 += (keycode == KEY_RIGHT ? tmp : -tmp);
 		e->x2 += (keycode == KEY_RIGHT ? tmp : -tmp);
 	}
+	else if (keycode == KEY_IT1 && e->iter < 400)
+		e->iter += 50;
+	else if (keycode == KEY_IT2 && e->iter > 50)
+		e->iter -= 50;
 }
 
 int			mouse2(int x, int y, t_env *e)
@@ -88,7 +92,7 @@ int			key_hook(int keycode, t_env *e)
 	if (keycode == KEY_ESC)
 		leave();
 	else if (keycode == KEY_UP || keycode == KEY_DOWN || keycode == KEY_LEFT
-		|| keycode == KEY_RIGHT)
+		|| keycode == KEY_RIGHT || keycode == KEY_IT1 || keycode == KEY_IT2)
 		key_move(keycode, e);
 	else if (keycode == KEY_PAL1)
 		e->pal = 1;

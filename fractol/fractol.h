@@ -37,6 +37,8 @@
 # define KEY_COL 24
 # define KEY_ZERO 76
 # define KEY_DEF 36
+# define KEY_IT1 69
+# define KEY_IT2 78
 # define ITERMAX 100
 # define MOVE_SPEED 50
 
