@@ -46,7 +46,7 @@ void	ft_option(void)
 			0x0000FF, "-    enter(pavnum)   => RESET ALL");
 	mlx_string_put(e.mlx, e.win, 100, 350,
 			0xFFFFFF, "-      return        => Deformation ON/OFF");
-	mlx_string_put(e.mlx, e.win, 100, 350,
+	mlx_string_put(e.mlx, e.win, 100, 400,
 			0xFFFFFF, "-        +/-         => Iteration");
 	mlx_loop(e.mlx);
 }
