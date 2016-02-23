@@ -6,15 +6,16 @@
 /*   By: gmarguer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 12:18:11 by gmarguer          #+#    #+#             */
-/*   Updated: 2016/02/20 19:53:59 by gmarguer         ###   ########.fr       */
+/*   Updated: 2016/02/23 22:22:29 by gmarguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		init_mandelbrot(t_env *e)
+int			init_mandelbrot(t_env *e)
 {
 	e->col = 1;
+	e->m = 1.0;
 	e->pal = 1;
 	e->x1 = -2.0;
 	e->x2 = 2.0;
@@ -24,7 +25,8 @@ void		init_mandelbrot(t_env *e)
 	e->xs = 0.0;
 	e->def = 0;
 	e->ftype = 1;
-	e->iter = ITERMAX / 2;
+	e->iter = ITERMAX;
+	return (1);
 }
 
 void		mandelbrot(t_env *e, t_calc c, int x, int y)
@@ -42,7 +44,7 @@ void		mandelbrot(t_env *e, t_calc c, int x, int y)
 	c.i = 0;
 	while (c.z_r2 + c.z_i2 < 4 && c.i < e->iter)
 	{
-		c.z_i = 2 * c.z_i * c.z_r + c.c_i;
+		c.z_i = e->m * 2 * c.z_i * c.z_r + c.c_i;
 		c.z_r = c.z_r2 - c.z_i2 + c.c_r;
 		c.z_r2 = c.z_r * c.z_r;
 		c.z_i2 = c.z_i * c.z_i;

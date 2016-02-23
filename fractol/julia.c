@@ -6,13 +6,13 @@
 /*   By: gmarguer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 12:18:11 by gmarguer          #+#    #+#             */
-/*   Updated: 2016/02/20 18:29:59 by gmarguer         ###   ########.fr       */
+/*   Updated: 2016/02/23 22:23:31 by gmarguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_julia(t_env *e)
+int		init_julia(t_env *e)
 {
 	e->col = 1;
 	e->pal = 1;
@@ -21,10 +21,12 @@ void	init_julia(t_env *e)
 	e->y1 = -2;
 	e->y2 = 2;
 	e->ys = 0.0;
+	e->m = 1.0;
 	e->xs = 0.0;
 	e->def = 0;
 	e->ftype = 2;
-	e->iter = ITERMAX;
+	e->iter = ITERMAX * 2;
+	return (1);
 }
 
 void	julia(t_env *e, t_calc c, int x, int y)
@@ -37,9 +39,9 @@ void	julia(t_env *e, t_calc c, int x, int y)
 	c.i = 0;
 	while (c.z_r * c.z_r + c.z_i * c.z_i <= 4.0 && c.i < e->iter)
 	{
-		tmp = c.z_r;
-		c.z_r = c.z_r * c.z_r - c.z_i * c.z_i + e->xs;
-		c.z_i = 2.0 * tmp * c.z_i + e->ys;
+		tmp = c.z_r * e->m;
+		c.z_r = c.z_r * c.z_r - c.z_i * c.z_i + e->xs * e->m;
+		c.z_i = 2.0 * tmp * c.z_i + e->ys * e->m;
 		c.i += 1;
 	}
 	if (c.i == e->iter)

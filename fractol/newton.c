@@ -6,13 +6,13 @@
 /*   By: gmarguer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 12:18:11 by gmarguer          #+#    #+#             */
-/*   Updated: 2016/02/20 18:29:40 by gmarguer         ###   ########.fr       */
+/*   Updated: 2016/02/23 22:23:10 by gmarguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		init_newton(t_env *e)
+int			init_newton(t_env *e)
 {
 	e->col = 1;
 	e->pal = 1;
@@ -21,10 +21,13 @@ void		init_newton(t_env *e)
 	e->y1 = -4;
 	e->y2 = 4;
 	e->ys = 0.0;
+	e->m = 1;
+	e->m2 = 1;
 	e->xs = WINDOW_SIZE_W / 2;
 	e->def = 0;
 	e->ftype = 4;
 	e->iter = ITERMAX / 2;
+	return (1);
 }
 
 void		newton(t_env *e, t_calc c, int x, int y)
@@ -38,10 +41,10 @@ void		newton(t_env *e, t_calc c, int x, int y)
 	i2 = 0;
 	while (c.i < e->iter)
 	{
-		c.z_r2 = 2 * c.z_r / 3 - (c.z_r * c.z_r - c.z_i * c.z_i) / (c.z_r * \
-		c.z_r + c.z_i * c.z_i) / (c.z_r * c.z_r + c.z_i * c.z_i) / 3;
-		c.z_i2 = 2 * c.z_i / 3 + 2 * c.z_r * c.z_i / (c.z_r * c.z_r + c.z_i \
-		* c.z_i) / (c.z_r * c.z_r + c.z_i * c.z_i) / 3;
+		c.z_r2 = e->m * 2 * c.z_r / 3 - (c.z_r * c.z_r - c.z_i * c.z_i) / \
+		(c.z_r * c.z_r + c.z_i * c.z_i) / (c.z_r * c.z_r + c.z_i * c.z_i) / 3;
+		c.z_i2 = e->m2 * 2 * c.z_i / 3 + 2 * c.z_r * c.z_i / (c.z_r * c.z_r +\
+		c.z_i * c.z_i) / (c.z_r * c.z_r + c.z_i * c.z_i) / 3;
 		c.z_r = c.z_r2;
 		c.z_i = c.z_i2;
 		if (c.z_r * c.z_r + c.z_i * c.z_i < (e->xs / WINDOW_SIZE_W))

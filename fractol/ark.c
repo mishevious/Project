@@ -6,13 +6,13 @@
 /*   By: gmarguer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 12:18:11 by gmarguer          #+#    #+#             */
-/*   Updated: 2016/02/20 18:29:45 by gmarguer         ###   ########.fr       */
+/*   Updated: 2016/02/23 22:21:26 by gmarguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_ark(t_env *e)
+int		init_ark(t_env *e)
 {
 	e->col = 1;
 	e->pal = 1;
@@ -22,9 +22,11 @@ void	init_ark(t_env *e)
 	e->y2 = 2;
 	e->ys = 0.0;
 	e->xs = 0.0;
+	e->m = 1;
 	e->def = 0;
 	e->ftype = 3;
 	e->iter = ITERMAX / 2;
+	return (1);
 }
 
 void	ark(t_env *e, t_calc c, int x, int y)

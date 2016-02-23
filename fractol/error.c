@@ -58,14 +58,14 @@ void		error_param(int type, int ex)
 		ft_putstr_fd("|______________________________|\n", 2);
 		ft_putstr_fd("|\033[32mitems\
 \033[0m :                       |\n", 2);
-		ft_putstr_fd("|	\033[32mM\033[0m 	\033[36m(Mandelbrot)\
-\033[0m   |\n", 2);
-		ft_putstr_fd("|	\033[32mJ\033[0m 	\033[36m(Julia)\
-\033[0m        |\n", 2);
-		ft_putstr_fd("|	\033[32mA\033[0m 	\033[36m(Ark Ship)\
-\033[0m     |\n", 2);
-		ft_putstr_fd("|	\033[32mN\033[0m 	\033[36m(Newton)\
-\033[0m       |\n", 2);
+		ft_putstr_fd("|	\033[32mM\033[0m 	(Mandelbrot)   |\n", 2);
+		ft_putstr_fd("|	\033[32mJ\033[0m 	(Julia)        |\n", 2);
+		ft_putstr_fd("|	\033[32mN\033[0m 	(Newton)       |\n", 2);
+		ft_putstr_fd("|	\033[32mA\033[0m 	(Ship)         |\n", 2);
+		ft_putstr_fd("|	\033[32mB\033[0m 	(Mandelbar)    |\n", 2);
+		ft_putstr_fd("|	\033[32mC\033[0m 	(Newvoid)      |\n", 2);
+		ft_putstr_fd("|	\033[32mD\033[0m 	(Galactik)     |\n", 2);
+		ft_putstr_fd("|	\033[32mE\033[0m 	(Juliavoid)    |\n", 2);
 		ft_putstr_fd("|______________________________|\n", 2);
 	}
 	else if (type == 2)

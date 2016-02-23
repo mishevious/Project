@@ -6,7 +6,7 @@
 #    By: gmarguer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 17:35:34 by gmarguer          #+#    #+#              #
-#    Updated: 2016/02/20 20:08:36 by gmarguer         ###   ########.fr        #
+#    Updated: 2016/02/23 22:25:29 by gmarguer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,15 +37,15 @@ $(NAME): $(OBJ)
 	@sleep 0.5
 
 clean:
-	@echo "\033[31m-\033[0m FRACTOL [\033[31mCLEAN\033[0m]."
 	@rm -rf $(OBJ)
 	@make clean -C libft/
+	@echo "\033[31m-\033[0m FRACTOL [\033[31mCLEAN\033[0m]."
 	@sleep 0.5
 
 fclean: clean
-	@echo "\033[31m-\033[0m FRACTOL [\033[31mFCLEAN\033[0m]."
 	@rm -rf $(NAME)
 	@make fclean -C libft/
+	@echo "\033[31m-\033[0m FRACTOL [\033[31mFCLEAN\033[0m]."
 	@sleep 0.5
 
 re: fclean all

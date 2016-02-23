@@ -14,15 +14,28 @@
 
 static void	check_param(char *av, t_env *e)
 {
-	if ((av[0] != 'M' && av[0] != 'J' && av[0] != 'A' && av[0] != 'N') || av[1])
+	if ((av[0] != 'M' && av[0] != 'J' && av[0] != 'A' && av[0] != 'D'
+		&& av[0] != 'N' && av[0] != 'B' && av[0] != 'C' && av[0] != 'E')
+		|| av[1])
 		error_param(1, 1);
 	if (av[0] == 'M')
 		init_mandelbrot(e);
-	if (av[0] == 'J')
+	else if (av[0] == 'B' && (init_mandelbrot(e)))
+		e->m = -1.0;
+	else if (av[0] == 'C' && (init_newton(e)))
+		e->m = -1.0;
+	else if (av[0] == 'D' && (init_newton(e)))
+	{
+		e->m = -1.0;
+		e->m2 = -1.0;
+	}
+	else if (av[0] == 'E' && (init_julia(e)))
+		e->m = -1.0;
+	else if (av[0] == 'J')
 		init_julia(e);
-	if (av[0] == 'A')
+	else if (av[0] == 'A')
 		init_ark(e);
-	if (av[0] == 'N')
+	else if (av[0] == 'N')
 		init_newton(e);
 }
 

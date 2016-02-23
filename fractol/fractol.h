@@ -6,7 +6,7 @@
 /*   By: gmarguer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 12:18:28 by gmarguer          #+#    #+#             */
-/*   Updated: 2016/02/20 19:52:18 by gmarguer         ###   ########.fr       */
+/*   Updated: 2016/02/23 22:22:05 by gmarguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ struct			s_env {
 	double		y2;
 	double		xs;
 	double		ys;
+	double		m;
+	double		m2;
 	char		*pimg;
 	int			ftype;
 	int			bpp;
@@ -90,10 +92,10 @@ struct			s_env {
 	int			col;
 };
 
-void			init_mandelbrot(t_env *e);
-void			init_julia(t_env *e);
-void			init_ark(t_env *e);
-void			init_newton(t_env *e);
+int				init_mandelbrot(t_env *e);
+int				init_julia(t_env *e);
+int				init_ark(t_env *e);
+int				init_newton(t_env *e);
 
 void			leave(void);
 void			error_param(int type, int ex);
